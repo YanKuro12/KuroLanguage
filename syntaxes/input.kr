@@ -1,0 +1,5 @@
+InputLine("What is your name :")
+
+// AND
+
+Console.Inputline("You like game? :")
