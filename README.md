@@ -458,4 +458,4 @@ Project Status
 
 KuroLanguage 0.1.0 — Early Development
 
-The project is actively evolving toward a complete programming language ecosystem with its own language, tooling, package system, and multi-platform development environment.
+The project is actively evolving toward a complete programming language ecosystem with its own language, tooling, package system, and multi-platform development environment
