@@ -96,7 +96,8 @@ Example of a KuroLanguage project:
 my-project/
 ├── set.kuro
 ├── set.lock
-└── main.kr
+└── src/
+     └── main.kr
 ```
 
 | File | Description |
