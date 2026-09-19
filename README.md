@@ -1,271 +1,461 @@
-# KuroLanguage
+KuroLanguage
 
-A programming language with simple syntax, integrated tooling, and its own package ecosystem.
+«A simple, readable programming language with integrated tooling and its own package ecosystem.»
 
-![Version](https://img.shields.io/badge/version-0.1.0-blue)
-![Status](https://img.shields.io/badge/status-early%20development-orange)
-![License](https://img.shields.io/badge/license-proprietary-lightgrey)
-![Target platforms](https://img.shields.io/badge/target%20platforms-Linux%20%7C%20Windows%20%7C%20Android-informational)
+"Version" (https://img.shields.io/badge/version-0.1.0-blue)
+"Status" (https://img.shields.io/badge/status-early%20development-orange)
+"License" (https://img.shields.io/badge/license-proprietary-lightgrey)
+"Platforms" (https://img.shields.io/badge/platforms-Linux%20%7C%20Windows%20%7C%20Android-informational)
 
-> **Early development.** This README describes KuroLanguage 0.1.0. Language syntax and APIs may evolve before a stable release.
+KuroLanguage is a proprietary programming language designed around simple syntax, readable source code, integrated development tooling, and an independent package ecosystem.
 
-KuroLanguage is a programming language built around a simple, readable syntax. It is developed together with its own compiler/toolchain, a command-line interface (`kuro`), and a package ecosystem that supports public and private packages.
+The project includes the KuroLanguage language, its compiler and runtime tooling, the "kuro" command-line interface, package management, package formats, and cross-platform distribution.
 
-## Overview
+«Development status: KuroLanguage 0.1.0 is an early-development release. Language syntax, APIs, tooling, and package ecosystem behavior may evolve before a stable release.»
 
-KuroLanguage aims to provide a programming language whose syntax is simple and easy to understand, while still offering a compiler, a CLI, package management, testing, a build workflow, and its own package ecosystem.
+---
 
-It is not meant to be only a syntax experiment. The project is being shaped into a programming language ecosystem made up of:
+Overview
 
-- The KuroLanguage language
-- Compiler/interpreter tooling
-- The `kuro` command-line interface
-- Package management
-- A package format
-- A public/private package workflow
-- Multi-platform distribution
+KuroLanguage is being developed as a complete programming language ecosystem rather than only a language syntax implementation.
 
-## Why KuroLanguage
+The ecosystem is built around several core components:
 
-KuroLanguage is guided by the following principles:
+- KuroLanguage — the programming language itself
+- KuroLanguage toolchain — compilation, execution, checking, and testing
+- "kuro" CLI — the primary command-line interface
+- Package management — dependency installation and package workflows
+- Package formats — public and private package artifacts
+- Project management — project manifests and dependency lockfiles
+- Cross-platform distribution — Linux, Windows, and Android
+- Android development environment — a native Android environment currently under development
 
-- **Simple syntax** — Keeping the syntax simple and easy to understand is a core goal. Statements end with a newline, and semicolons are not used.
-- **Readable code** — Code should be easy to read and follow.
-- **Beginner-friendly** — The language is designed to be approachable for people who are new to programming.
-- **Integrated tooling** — The compiler/toolchain, CLI, package management, testing, and build workflow are part of KuroLanguage itself.
-- **Own package ecosystem** — KuroLanguage defines its own project manifest, lockfile, and package formats.
-- **Cross-platform direction** — The project is directed toward a consistent workflow across Linux, Windows, and Android.
-- **Practical development workflow** — The `kuro` CLI covers everyday tasks such as setting up, running, building, checking, and testing a project, as well as packaging and publishing.
+The goal is to provide a consistent development experience while keeping the language and its tooling straightforward to use.
 
-## Key Characteristics
+---
 
-- Source files use the `.kr` extension.
-- A single CLI executable, `kuro`, for running, building, checking, testing, and package workflows.
-- A project manifest (`set.kuro`) and a dependency lockfile (`set.lock`).
-- Public packages (`.krl`) and private packages (`.krlp`).
-- Private packages use authenticated encryption and password-based key derivation.
-- Distribution targets Linux, Windows, and Android.
+Why KuroLanguage?
 
-## Quick Example
+KuroLanguage is guided by a few core principles.
 
-Create a file named `main.kr`:
+Simple
 
-```
+KuroLanguage avoids unnecessary syntax where possible. Statements do not require semicolons, and source code is designed to remain easy to read.
+
+Readable
+
+The language is designed so that source code can be understood without excessive syntactic noise.
+
+Beginner-friendly
+
+KuroLanguage is intended to be approachable for people learning programming while still providing the tooling required to build real projects.
+
+Integrated
+
+Language execution, building, checking, testing, and package workflows are exposed through the "kuro" CLI.
+
+Independent ecosystem
+
+KuroLanguage defines its own project manifest, lockfile, package formats, and package workflow rather than relying on another programming language's package system.
+
+Cross-platform
+
+The project is being developed toward a common workflow across Linux, Windows, and Android.
+
+---
+
+Language
+
+KuroLanguage source files use the ".kr" extension.
+
+Some currently documented language characteristics include:
+
+- Statements end at a newline.
+- Semicolons are not required.
+- Single-line comments use "//".
+- Multi-line comments use "/* ... */".
+- Boolean literals are "true" and "false".
+- Logical operators include "&&", "||", and "!".
+- Decimal integer literals are supported.
+- Floating-point literals are supported.
+
+Output
+
+The currently defined output APIs include:
+
 PrintLine("Hello, KuroLanguage!")
-```
 
-Run it with the KuroLanguage CLI:
+The namespace form is also supported:
 
-```bash
-kuro run main.kr
-```
+Console.PrintLine("Hello, KuroLanguage!")
 
-## Language Basics
+The following APIs are not part of the current interface:
 
-The following characteristics of the language are currently documented.
+Print(...)
+Console.Print(...)
 
-- Source files use the `.kr` extension.
-- Statements do not use semicolons. A newline ends a statement.
-- Single-line comments start with `//`.
-- Multi-line comments are written between `/*` and `*/`.
-- Boolean literals are `true` and `false`.
-- Logical operators are `&&`, `||`, and `!`.
-- Numeric literals support decimal integers and floating-point values.
+Language syntax and APIs may continue to change while KuroLanguage is in development.
 
-### Output
+---
 
-```
-// Single-line comment
-PrintLine("Hello")
+Quick Start
 
-/*
-  Multi-line comment
-*/
-Console.PrintLine("Hello")
-```
+A minimal KuroLanguage source file can look like:
 
-`PrintLine(...)` and `Console.PrintLine(...)` are both valid. `Print(...)` and `Console.Print(...)` are not available.
+PrintLine("Hello, KuroLanguage!")
 
-Language syntax and APIs may evolve before a stable release.
+If the file is located at "src/main.kr", it can be executed with:
 
-## Project Structure
+kuro run src/main.kr
 
-Example of a KuroLanguage project:
+The exact project workflow may expand as the language and CLI continue to develop.
 
-```
+---
+
+Project Structure
+
+A KuroLanguage project uses a dedicated "src" directory for source code.
+
 my-project/
 ├── set.kuro
 ├── set.lock
 └── src/
-     └── main.kr
-```
+    └── main.kr
 
-| File | Description |
-| --- | --- |
-| `main.kr` | Main source code of the project. |
-| `set.kuro` | Project/package manifest. |
-| `set.lock` | Dependency lockfile. |
+Path| Purpose
+"set.kuro"| Project and package manifest
+"set.lock"| Dependency lockfile
+"src/"| Project source directory
+"src/main.kr"| Main source file / project entry source
 
-## CLI
+Keeping source code under "src/" separates project metadata from the actual KuroLanguage source tree.
 
-The KuroLanguage command-line interface is provided by the `kuro` executable.
+---
 
-| Command | Description |
-| --- | --- |
-| `kuro help` | Displays CLI help. |
-| `kuro --version` | Displays the KuroLanguage version. |
-| `kuro init` | Creates/prepares a KuroLanguage project. |
-| `kuro run <file>` | Runs a source program. |
-| `kuro build <file>` | Builds a program. |
-| `kuro check` | Performs project/source checks. |
-| `kuro test` | Runs tests. |
-| `kuro search <package>` | Searches for a package. |
-| `kuro install <package>` | Installs a dependency/package. |
-| `kuro pack` | Creates a package artifact. |
-| `kuro publish` | Publishes a package. |
-| `kuro publish --private` | Publishes a private package. |
+"kuro" CLI
 
-This table summarizes each command at a high level. Detailed command behavior is not covered in this README.
+The KuroLanguage command-line interface is provided through the "kuro" executable.
 
-## Package Ecosystem
+Available commands
 
-KuroLanguage has its own package ecosystem, covering the project manifest, the dependency lockfile, package formats, and a package workflow driven by the `kuro` CLI.
+Command| Purpose
+"kuro help"| Display CLI help
+"kuro --version"| Display the installed KuroLanguage version
+"kuro init"| Initialize a KuroLanguage project
+"kuro run <file>"| Run a KuroLanguage source file
+"kuro build <file>"| Build a KuroLanguage program
+"kuro check"| Check the project/source
+"kuro test"| Run project tests
+"kuro search <package>"| Search for a package
+"kuro install <package>"| Install a package/dependency
+"kuro pack"| Create a package artifact
+"kuro publish"| Publish a package
+"kuro publish --private"| Publish a private package
 
-| Item | Description |
-| --- | --- |
-| `set.kuro` | Project/package manifest |
-| `set.lock` | Dependency lockfile |
-| `.krl` | Public package |
-| `.krlp` | Private package |
+The CLI is intended to be the primary interface for common KuroLanguage development workflows.
 
-A package's type is determined by the package artifact/domain, not by a `type` field in the manifest.
+---
 
-Packages are installed with `kuro install <package>`. The available package workflow is:
+Package Ecosystem
 
-- **Search** — `kuro search <package>`
-- **Install** — `kuro install <package>`
-- **Pack** — `kuro pack`
-- **Publish** — `kuro publish`
-- **Private publish** — `kuro publish --private`
+KuroLanguage has its own package model.
 
-### Registry
+Projects and packages use two important project-level files:
 
-KuroLanguage is designed to have a package registry. The registry client supports the concepts of package metadata, package versions, package download, public publishing, and private publishing. Registry availability details, including any registry address, are not listed in this README.
+set.kuro
+set.lock
 
-## Public and Private Packages
+Manifest
 
-### Public packages
+"set.kuro" describes project/package metadata and dependency configuration.
 
-Public packages use the `.krl` format. They are intended for packages that can be used through the KuroLanguage package ecosystem.
+Example:
 
-### Private packages
+nama = "KuroTest"
+version = "1.0.0"
 
-Private packages use the `.krlp` format. They use authenticated encryption and password-based key derivation. The current implementation uses Argon2id and ChaCha20-Poly1305.
+Additional manifest capabilities are part of the KuroLanguage package system.
 
-Protocol-level details of private packages are not documented in this README.
+Lockfile
 
-## Installation
+"set.lock" records resolved dependency information so that dependency state can be reproduced consistently.
 
-KuroLanguage release packages are obtained through the official installation/download website:
+Package formats
 
-<!-- NOTE: Replace the placeholder URL below with the final official installation domain before publishing this README. -->
-[Official Installation Page](https://<OFFICIAL-INSTALL-DOMAIN>)
+Extension| Type
+".krl"| Public package
+".krlp"| Private package
 
-### Linux
+Package type is determined by the package artifact/domain rather than a "type" field in the project manifest.
 
-KuroLanguage is distributed for Linux as a Debian package (`.deb`) named `kuro`, which provides the `kuro` binary. It is not currently distributed through an APT repository.
+---
 
-Download the package from the official installation page and install it with your system's standard Debian package tooling. Then verify the installation:
+Package Workflow
 
-```bash
+Package operations are integrated into the "kuro" CLI.
+
+Search
+
+kuro search <package>
+
+Search for available packages.
+
+Install
+
+kuro install <package>
+
+Install a package or project dependency.
+
+Pack
+
+kuro pack
+
+Create a package artifact from the project.
+
+Publish
+
+kuro publish
+
+Publish a public package.
+
+Private publishing is available through:
+
+kuro publish --private
+
+---
+
+Public Packages
+
+Public packages use the ".krl" package format.
+
+They are intended for packages distributed through the KuroLanguage package ecosystem.
+
+Public packages are designed to provide a straightforward way to distribute reusable KuroLanguage projects and libraries.
+
+---
+
+Private Packages
+
+Private packages use the ".krlp" format.
+
+Private package protection uses password-based key derivation and authenticated encryption.
+
+The current cryptographic implementation uses:
+
+- Argon2id for password-based key derivation
+- ChaCha20-Poly1305 for authenticated encryption
+
+Cryptographic protocol details are intentionally not documented in the main README.
+
+«Private package encryption is a security mechanism, not a guarantee that package contents are impossible to reverse-engineer.»
+
+---
+
+Package Registry
+
+KuroLanguage includes registry tooling for package discovery, version information, package downloads, and publishing workflows.
+
+Registry infrastructure is still part of the broader KuroLanguage ecosystem and may evolve during development.
+
+Registry addresses and deployment-specific details are intentionally omitted from this README.
+
+---
+
+Installation
+
+KuroLanguage distributions are provided through the official installation/download page.
+
+Official installation page:
+"<OFFICIAL-INSTALL-DOMAIN>"
+
+Replace the placeholder above with the final official installation domain before publishing the README.
+
+---
+
+Linux
+
+Linux distribution uses the Debian package format:
+
+.deb
+
+The package provides the "kuro" executable.
+
+After installation, verify the CLI with:
+
 kuro --version
-```
 
-The expected output for this release is `kuro 0.1.0`.
+For KuroLanguage 0.1.0, the expected version output is:
 
-### Windows
+kuro 0.1.0
 
-Windows distribution is planned through an MSI installer, `KuroLanguage-0.1.0.msi`, intended to install the KuroLanguage CLI.
+KuroLanguage is currently distributed as a Debian package rather than through an APT repository.
 
-Runtime installation on Windows has not yet been directly verified by the project owner, so Windows support should be considered unverified at this time.
+---
 
-### Android
+Windows
 
-The Android environment is under development. See [Android Environment](#android-environment).
+Windows distribution uses an MSI installer:
 
-## Platform Support
+KuroLanguage-0.1.0.msi
 
-| Platform | Distribution | Status |
-| --- | --- | --- |
-| Linux | Debian package (`.deb`) | Release package available |
-| Windows | MSI installer (`KuroLanguage-0.1.0.msi`) | Planned; runtime installation not yet directly verified by the project owner |
-| Android | Native Android application / IDE (`.apk` / Android release build) | In development |
+The installer is intended to install the KuroLanguage CLI on Windows.
 
-KuroLanguage is directed toward a consistent workflow across these platforms: one language, one CLI/toolchain, and one package ecosystem. This is a project direction; features are not claimed to be identical on every platform at this time.
+The Windows installer has been prepared, but final runtime installation and behavior have not yet been directly verified by the project owner.
 
-## Android Environment
+---
 
-KuroLanguage for Android is being developed as a native Android application/IDE. It is not intended to be merely a Termux wrapper.
+Android
+
+KuroLanguage for Android is being developed as a native Android application, rather than as a terminal wrapper around Termux.
 
 The planned environment includes:
 
-```
 KuroLanguage Android
-├── code editor
-├── project management
-├── console
-├── diagnostics
-└── KuroLanguage engine
-```
+├── Editor
+├── Project Manager
+├── Console
+├── Diagnostics
+└── KuroLanguage Engine
 
-- **User interface:** Kotlin / Jetpack Compose
-- **Language engine:** Rust, reused from the KuroLanguage core
+The application is planned around:
 
-Android builds and releases are planned to use GitHub Actions. The Android release build (`.apk`) is in development.
+- Kotlin
+- Jetpack Compose
+- Rust-based KuroLanguage engine
 
-## Development Status
+The Android application is still under development.
 
-KuroLanguage is actively being developed. The current release is 0.1.0, and the project is in an early stage of development.
+Android release builds are planned to use automated CI/CD through GitHub Actions.
 
-Current project direction includes:
+---
+
+Platform Support
+
+Platform| Distribution| Current status
+Linux| ".deb"| Available
+Windows| ".msi"| Release preparation / runtime verification pending
+Android| Native Android application| In development
+
+The long-term direction is a consistent KuroLanguage ecosystem across supported platforms.
+
+This does not imply that every feature is currently available or identical on every platform.
+
+---
+
+Development Status
+
+KuroLanguage is currently in active development.
+
+Version "0.1.0" represents an early stage of the project rather than a stable language specification.
+
+Current development areas include:
 
 - Language implementation
-- Compiler/toolchain
-- CLI
+- Compiler and runtime tooling
+- CLI development
+- Project management
 - Package management
 - Package formats
-- Package registry
+- Package registry infrastructure
 - Cross-platform distribution
 - Android development environment
-
-Additional notes:
-
-- The compiler has reached an internal milestone that the project owner considers complete. This does not mean the language or toolchain is finished; KuroLanguage as a whole remains under development.
-- Parts of the toolchain are covered by automated tests. For the CLI, this includes command parsing/dispatch and rejection cases.
-- Windows runtime installation has not yet been directly verified, and the Android environment is still in development (see [Platform Support](#platform-support)).
-- APIs and language syntax may evolve before a stable release.
-
-## Roadmap
-
-This roadmap lists areas of development. It is not a commitment, and no release dates are attached.
-
-- Language feature expansion
-- Improved diagnostics
-- Package ecosystem
-- Registry
-- Android IDE
-- Cross-platform releases
-- Developer tooling
 - Documentation
-- Ecosystem expansion
 
-## Proprietary Software
+The compiler/toolchain has progressed through major implementation milestones, while the overall language and ecosystem continue to evolve.
+
+Automated testing is also used throughout the development of the KuroLanguage tooling.
+
+---
+
+Roadmap
+
+The roadmap represents development direction rather than guaranteed release commitments.
+
+Language
+
+- Expand language capabilities
+- Improve language diagnostics
+- Continue refining syntax and APIs
+- Stabilize the language specification
+
+Tooling
+
+- Improve CLI workflows
+- Improve diagnostics
+- Expand testing capabilities
+- Improve developer tooling
+- Expand documentation
+
+Package Ecosystem
+
+- Continue registry development
+- Improve package discovery
+- Improve package distribution
+- Expand public/private package workflows
+
+Platforms
+
+- Continue Windows support and verification
+- Develop the native Android environment
+- Improve cross-platform consistency
+
+No specific release dates are attached to these roadmap items.
+
+---
+
+Design Direction
+
+KuroLanguage is being developed around a simple idea:
+
+«The language, tooling, and package ecosystem should work together as one development environment.»
+
+Instead of treating the compiler, CLI, package manager, project files, and package distribution as unrelated tools, KuroLanguage is designed to provide them as parts of the same ecosystem.
+
+This approach is intended to make the path from creating a project to running, testing, building, packaging, and distributing it straightforward.
+
+---
+
+Versioning
+
+The current release is:
+
+KuroLanguage 0.1.0
+
+Because the project is still in early development, users should expect changes to:
+
+- language syntax
+- language APIs
+- CLI behavior
+- package behavior
+- package formats
+- platform support
+
+Stable compatibility guarantees will be defined as the project approaches a stable release.
+
+---
+
+Proprietary Software
 
 KuroLanguage and its source code are proprietary software owned by YanKuro.
 
-Distribution and usage are subject to the project's applicable license/terms.
+The source code is not distributed as an open-source project.
 
-## Links
+Use and distribution of KuroLanguage are subject to the applicable license and terms provided with the software.
 
-<!-- NOTE: Replace the placeholder URL below with the final official installation domain before publishing this README. -->
-- [Official Installation Page](https://<OFFICIAL-INSTALL-DOMAIN>)
+---
+
+Links
+
+- Official Installation: "<OFFICIAL-INSTALL-DOMAIN>"
+- Documentation: "<DOCUMENTATION-URL>"
+- Project Website: "<PROJECT-WEBSITE>"
+
+Replace placeholders with official URLs before publishing.
+
+---
+
+Project Status
+
+KuroLanguage 0.1.0 — Early Development
+
+The project is actively evolving toward a complete programming language ecosystem with its own language, tooling, package system, and multi-platform development environment.
