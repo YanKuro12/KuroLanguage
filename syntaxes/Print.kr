@@ -1,1 +1,5 @@
 PrintLine("Halo, Kurolanguage")
+
+// and
+
+Console.PrintLine("Halo, My name is YanKuro")
